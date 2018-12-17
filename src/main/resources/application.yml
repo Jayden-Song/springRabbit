@@ -1,0 +1,56 @@
+#SprongBoot WEB Default
+spring:
+  profiles:
+    active: 'local'
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  mvc:
+    view:
+      prefix: '/WEB-INF/view/'
+      suffix: '.jsp'
+  http:
+    encoding:
+      charset: 'UTF-8'
+      enable: true
+      force : true
+
+---
+
+#ReabbitMQ
+#Message Queue specific configs for testMq app 1
+app1:
+  exchange:
+    name: 'testmq1-exchange'
+  queue:
+    name: 'testmq1-queue'
+  routing:
+    key: 'testmq1-routing-key'
+
+#Message Queue specific configs for app2
+app2:
+  exchange:
+    name: 'testmq2-exchange'
+  queue:
+    name: 'testmq2-queue'
+  routing:
+    key: 'testmq2-routing-key'
+
+---
+
+#AMQP RabbitMQ configuration
+spring:
+  rabbitmq:
+    host: '' # RabbitMQ ip address
+    port: '' # RabbitMQ port number
+    username: '' # RabbitMQ login ID
+    password: '' # RabbitMQ login PW
+  lisner:
+    simple:
+      concurrency: 4
+      max-concurrency: 8
+      retry:
+        initial-interval: 5000
+        max-attempt: 3
