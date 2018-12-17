@@ -1,0 +1,2 @@
+# springRabbit
+Basic Spring + RabbitMQ
